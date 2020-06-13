@@ -24,7 +24,11 @@ public:
 	void mensajeDescripcion();
 	void mensajeInstrucciones();
 	void mensajeDespedida();
+	void mensajeAnimalAdivinado();
+	void mensajeAnimalNoAdivinado();
 	string preguntaAusuario(string dato);
+	string preguntaAnimal(string dato);
+	string preguntaContinuar();
 
 // Métodos privados
 private:

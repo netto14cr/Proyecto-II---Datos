@@ -70,6 +70,25 @@ void Interfaz::mensajeDespedida()
 		"___________________________________________________________\n\n\n";
 	detenerActPantalla();
 }
+// Método que permite mostrar en pantalla al usuario que ha acertado con el animal
+void Interfaz::mensajeAnimalAdivinado()
+{
+	cout << "\n\n__________________________________________________________"
+		"___________________________________________________________";
+	cout << "\n\n\t\t\t************	 Y O  G A N E !!	************\n";
+	cout << "__________________________________________________________"
+		"___________________________________________________________\n\n\n";
+
+}
+// Método que permite mostrar en pantalla al usuario que NO ha acertado con el animal
+void Interfaz::mensajeAnimalNoAdivinado()
+{
+	cout << "\n\n__________________________________________________________"
+		"___________________________________________________________";
+	cout << "\n\n\t\t\t************	 A C E P T O  M I  D E R R O R T A !!	************\n";
+	cout << "__________________________________________________________"
+		"___________________________________________________________\n\n\n";
+}
 
 
 // Método que permite mostrar al usuario la informacion del animal que se encontro en el arbol
@@ -77,8 +96,29 @@ void Interfaz::mensajeDespedida()
 string Interfaz::preguntaAusuario(string dato)
 {
 	string resp; resp = "";
-	cout << dato << "\n";
+	cout <<"\n"<< dato << "\n";
 	cin>>resp;
+	cout << "\n";
+	return resp;
+}
+
+// Método que permite mostrar en pantalla al usuario la pregunta que el sistema 
+// con la información del arbol animal y las caracteristicas previamente seleccionadas
+// del usuario, para adivinar el animal que esta pensando.
+string Interfaz::preguntaAnimal(string dato)
+{
+	string resp; resp = "";
+	cout << "\n\t El animal que estas pensado es: " << dato << " ?\n";
+	cin >> resp;
+	cout << "\n";
+	return resp;
+}
+// Método que permite preguntar al usuario si desea seguir utilizando el sistema.
+string Interfaz::preguntaContinuar()
+{
+	string resp; resp = "";
+	cout << "\n\t Desea seguir buscando animales? \n";
+	cin >> resp;
 	cout << "\n";
 	return resp;
 }

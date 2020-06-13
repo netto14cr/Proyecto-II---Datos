@@ -19,6 +19,7 @@ class Controladora{
 // Métodos públicos
 public:
 
+	Controladora(){inicioPrograma(); }
 	void inicioPrograma();
 
 // Métodos privados

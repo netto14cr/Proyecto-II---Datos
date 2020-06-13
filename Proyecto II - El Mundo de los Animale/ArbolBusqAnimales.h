@@ -17,13 +17,11 @@
 using std::string;
 
 // Define el struct para los nodos
-struct Nodo {
+ struct Nodo {
 	string pregunta; // Declaración de dato tipo string que maneja la estructura
-	struct Nodo *izq; // Declaración de hijo izquierdo de la estructura
-	struct Nodo *der; // Declaración de hijo derecho de la estructura
+	Nodo *izq; // Declaración de hijo izquierdo de la estructura
+	Nodo *der; // Declaración de hijo derecho de la estructura
 };
-
-
 
 // Define la clase arbol de busqueda animal
 class ArbolBAnimal {
@@ -31,10 +29,14 @@ class ArbolBAnimal {
 
 // Métodos públicos
 public:
+
+	ArbolBAnimal() { inicializaNodos(); }
+
 	// Metodo que devuelve la raiz del arbol animal
 	Nodo* getRaiz() { return raiz; }
 	void obtenerInformacionArchivo(fstream& archivo, Nodo*& raiz);
-	void realizarPreguntas(Nodo* raiz, Nodo* anterior, Interfaz inter);
+	void generarPreguntas(Nodo* raiz, Nodo* anterior, Interfaz inter);
+	void adivinarAnimal(Nodo* raiz, Nodo* anterior, Interfaz inter);
 
 	// Métodos privados
 private:
@@ -43,7 +45,11 @@ private:
 	Nodo* nuevo;
 	Nodo* raiz; 
 	Nodo* inicio;
-	bool verificaRespuestaCorrecta(string respesta, Nodo* raiz, Nodo* anterior, Interfaz inter);
+	void inicializaNodos();
+	void restructuraDatosArbol(Nodo* actual, Nodo* anterior, Interfaz inter);
+	void verificaRespuestaPregunta(string respuesta, Nodo* raiz, Nodo* anterior, Interfaz inter);
+	bool verificaRepuestaAnimal(string respuesta, Nodo* raiz, Nodo* anterior, Interfaz inter);
+
 };
 
 

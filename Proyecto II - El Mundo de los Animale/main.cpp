@@ -10,9 +10,6 @@
 int main()
 {
 	Controladora control; // Declara el uso de la clase controladora.
-	control.inicioPrograma(); // LLama al método que controla el inicio del programa.
 	return 0;
 }
 
-
-// QUEDE AQUI EN LA 50 DE ANIMALES

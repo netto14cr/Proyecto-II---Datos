@@ -1,18 +1,22 @@
 #include "Controladora.h"
 
-Interfaz inter;
-ArbolBAnimal aBA;
-Archivos ar;
+Interfaz inter; // Delcaración de la clase interfaz de uso global
 
 // Método que controla el inicio del programa
 void Controladora::inicioPrograma()
 {
+	ArbolBAnimal aBA; // Declaracion de uso de la clase arbol de busqueda animal
+	Archivos ar; // Declaración de uso de la clase archivos
+	Nodo* principal;
 	mensajeInicial();
-	Nodo* arbolAnimal=NULL;
 	// Verifica que se pueda realizar la lectura del archivo de texto con la 
 	// informacion del programa.
 	if (ar.verificarDatosArchivo()) {
-		aBA.obtenerInformacionArchivo(ar.leerArchivo, arbolAnimal);
+		fstream archivo = ar.leerArchivo();
+		principal = aBA.getRaiz();
+		aBA.obtenerInformacionArchivo(archivo, principal);
+		aBA.generarPreguntas(principal,NULL, inter);
+		
 	}
 	// Falso termina el programa con un mensaje de error.
 	else {
