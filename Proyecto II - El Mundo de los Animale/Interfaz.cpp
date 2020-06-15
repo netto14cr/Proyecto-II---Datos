@@ -90,6 +90,13 @@ void Interfaz::mensajeAnimalNoAdivinado()
 		"___________________________________________________________\n\n\n";
 }
 
+// Método que se encarga de eliminar el buffer generado en datos de entrada pasados
+// su funcion es eliminar estos datos para que permita ingresar nuevos sin problemas
+void Interfaz::eliminaCacheDatosEntrada()
+{
+	cin.ignore();
+}
+
 
 // Método que permite mostrar al usuario la informacion del animal que se encontro en el arbol
 // y obtener la respuesta por parte del usuario.
@@ -111,6 +118,30 @@ string Interfaz::preguntaAnimal(string dato)
 	cout << "\n\t El animal que estas pensado es: " << dato << " ?\n";
 	cin >> resp;
 	cout << "\n";
+	return resp;
+}
+
+// Método que se encarga de preguntar al usuario el dato del nuevo animal que sera
+// almacenado en la base de datos del sistema.
+string Interfaz::preguntaNuevoAnimal()
+{
+	string resp; resp = "";
+	eliminaCacheDatosEntrada();// elimina datos basura de entrada
+	cout << "\n\n\t************	Ingrese el animal que estabas pensando?	************\n";
+	getline(cin, resp);
+	return resp;
+}
+
+// Método que se encarga de preguntar al usuario el dato de la carcterística del nuevo
+// animal que sera utilizada cómo pregunta para la proxima vez que el sistema entre en
+// funcionamiento pueda utilizar la nueva información para adivinar el neuvo animal.
+string Interfaz::preguntaNuevaCaracteristica()
+{
+	string resp; resp = "";
+	eliminaCacheDatosEntrada();// elimina datos basura de entrada
+	cout << "\n\n\t*** Ingrese la caracteristica principal del animal ingresado previamente\n"
+		" en forma de pregunta?	***\n";
+	getline(cin, resp);
 	return resp;
 }
 // Método que permite preguntar al usuario si desea seguir utilizando el sistema.

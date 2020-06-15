@@ -18,7 +18,7 @@ using std::string;
 
 // Define el struct para los nodos
  struct Nodo {
-	string pregunta; // Declaración de dato tipo string que maneja la estructura
+	string pregunta; // Declaración dato tipo string que utiliza la estructura
 	Nodo *izq; // Declaración de hijo izquierdo de la estructura
 	Nodo *der; // Declaración de hijo derecho de la estructura
 };
@@ -34,21 +34,31 @@ public:
 
 	// Metodo que devuelve la raiz del arbol animal
 	Nodo* getRaiz() { return raiz; }
+	bool getAceptaDatos() { return aceptaNDatos; }
 	void obtenerInformacionArchivo(fstream& archivo, Nodo*& raiz);
 	void generarPreguntas(Nodo* raiz, Nodo* anterior, Interfaz inter);
 	void adivinarAnimal(Nodo* raiz, Nodo* anterior, Interfaz inter);
-
+	void guardaInformacion(Nodo*& raiz, fstream& archivo);
+	//void reordenaOrdenNodosNuevo(Nodo* raiz, Nodo* anterior, Nodo* nuevoNodoCaract);
 	// Métodos privados
 private:
 
 	// Declaracion de nodos de la clase
-	Nodo* nuevo;
+	
 	Nodo* raiz; 
-	Nodo* inicio;
+	Nodo* crearNuevoNodo(Nodo* nuev);
+	bool aceptaNDatos;
 	void inicializaNodos();
-	void restructuraDatosArbol(Nodo* actual, Nodo* anterior, Interfaz inter);
-	void verificaRespuestaPregunta(string respuesta, Nodo* raiz, Nodo* anterior, Interfaz inter);
-	bool verificaRepuestaAnimal(string respuesta, Nodo* raiz, Nodo* anterior, Interfaz inter);
+	void ingresarNuevosDatos(Nodo* actual, Nodo* anterior, Interfaz inter);
+	void restructuraDatosArbol(Nodo* actual, Nodo* anterior, string nuevoAnimal, 
+		string nuevaCaract, Interfaz inter);
+	void verificaRespuestaPregunta(string respuesta, Nodo* raiz, 
+									Nodo* anterior, Interfaz inter);
+	bool verificaRepuestaAnimal(string respuesta, Nodo* raiz, 
+									Nodo* anterior, Interfaz inter);
+
+	void reordenaOrdenNodosNuevo(Nodo* raiz, Nodo* anterior, Nodo* nuevoNodoCaract);
+	void aceptaNuevosDatos(bool conf);
 
 };
 

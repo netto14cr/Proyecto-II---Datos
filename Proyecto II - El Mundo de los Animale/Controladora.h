@@ -26,6 +26,8 @@ public:
 private:
 
 	void mensajeInicial();
+	void ejecutarPrograma();
+	bool verificaProgramaContinua();
 	void mensajeFinal();
 
 };

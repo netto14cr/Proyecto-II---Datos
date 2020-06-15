@@ -1,10 +1,8 @@
 #include "Archivos.h"
 
-
-
 // Método que se encarga de leer un archivo de texto con la información del
 // árbol de busqueda de los animales.
-fstream Archivos::leerArchivo()
+fstream Archivos::abrirArchivoEntrada()
 {
 	fstream archivo; // Declaracion de vaiable para lectura archivo
 	//Apertura de archivo con la direccion del archivo de texto que se requiere abrir
@@ -12,12 +10,22 @@ fstream Archivos::leerArchivo()
 	return archivo;
 }
 
+
+// Método que se encarga de leer un archivo de tipo salida de datos
+// que funciona de escritura del mismo.
+fstream Archivos::abrirArchivoSalida()
+{
+	fstream archivo; // Declaracion de vaiable para lectura archivo
+	//Apertura de archivo con la direccion del archivo de texto que se requiere abrir
+	archivo.open(DIR_ARCHIVO_ARBOL, ios::out);
+	return archivo;
+}
+
 // Método que cierra el archivo leido
-void Archivos::cerrarArchivo(fstream archivo)
+void Archivos::cerrarArchivo(fstream& archivo)
 {
 	archivo.close();
 }
-
 
 // Método que busca la información de un archivo de texto indicado y 
 // devuelve una respuesta verdadera o falsa si pudo acceder a la información

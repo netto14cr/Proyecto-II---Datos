@@ -9,6 +9,7 @@
 #define INTERFAZ_H
 
 #include <iostream>
+#include <string>
 // Declaración de funcion de libreria utilizada para imprirmir mensajes
 using std::cout;
 using std::string;
@@ -26,13 +27,16 @@ public:
 	void mensajeDespedida();
 	void mensajeAnimalAdivinado();
 	void mensajeAnimalNoAdivinado();
+	void eliminaCacheDatosEntrada();
+	void limpiairPantalla();
 	string preguntaAusuario(string dato);
 	string preguntaAnimal(string dato);
+	string preguntaNuevoAnimal();
+	string preguntaNuevaCaracteristica();
 	string preguntaContinuar();
 
 // Métodos privados
 private:
-	void limpiairPantalla();
 	void detenerActPantalla();
 
 };

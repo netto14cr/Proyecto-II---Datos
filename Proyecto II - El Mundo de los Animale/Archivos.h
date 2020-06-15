@@ -31,8 +31,9 @@ public:
 
 	Archivos() {}
 	bool verificarDatosArchivo();
-	fstream leerArchivo();
-	void cerrarArchivo(fstream archivo);
+	fstream abrirArchivoEntrada();
+	fstream abrirArchivoSalida();
+	void cerrarArchivo(fstream &archivo);
 
 // Métodos privados
 private:

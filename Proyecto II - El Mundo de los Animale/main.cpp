@@ -13,3 +13,7 @@ int main()
 	return 0;
 }
 
+
+// © Universidad Nacional de Costa Rica 
+// EIF207 Estructuras de Datos 
+// I ciclo 2020.
