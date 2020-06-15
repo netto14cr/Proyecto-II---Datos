@@ -2,23 +2,59 @@
 
 // Método que se encarga de leer un archivo de texto con la información del
 // árbol de busqueda de los animales.
-fstream Archivos::abrirArchivoEntrada()
+fstream& Archivos::abrirArchivoEntrada()
 {
-	fstream archivo; // Declaracion de vaiable para lectura archivo
 	//Apertura de archivo con la direccion del archivo de texto que se requiere abrir
 	archivo.open(DIR_ARCHIVO_ARBOL, ios::in);
 	return archivo;
 }
 
+// Método recursivo que realiza la lectura por linea del archivo de texto y
+// va creando la informacion para ir acomodando en una estructura de arbol
+void Archivos::obtenerInformacionArchivo(fstream& archivo, Nodo*& raiz)
+{
+	string lineaTxt;
+	if (!archivo.eof())
+	{
+		getline(archivo, lineaTxt);
+		cin.clear();
+	}
+	else return;
+	if (lineaTxt != "#")
+	{
+		raiz = new Nodo;
+		raiz->pregunta = lineaTxt;
+		obtenerInformacionArchivo(archivo, raiz->izq);
+		obtenerInformacionArchivo(archivo, raiz->der);
+	}
+
+	// Falso si no puede leer la información devolvera el valor de nodo 
+	// raiz en nulo.
+	else { raiz = NULL; }
+}
 
 // Método que se encarga de leer un archivo de tipo salida de datos
 // que funciona de escritura del mismo.
-fstream Archivos::abrirArchivoSalida()
+fstream& Archivos::abrirArchivoSalida()
 {
-	fstream archivo; // Declaracion de vaiable para lectura archivo
-	//Apertura de archivo con la direccion del archivo de texto que se requiere abrir
+	//Apertura de archivo con la direccion del archivo de texto que se 
+	//requiere abrir
 	archivo.open(DIR_ARCHIVO_ARBOL, ios::out);
 	return archivo;
+}
+
+// Método que se encarga de guardar la información del nuevo árbol de busqueda animal
+// en un archivo de texto para que se actialice la base de datos del sistema.
+void Archivos::guardaInformacion(Nodo*& raiz, fstream& archivo)
+{
+	if (raiz == NULL)
+		archivo << "#" << "\n";
+	else
+	{
+		archivo << raiz->pregunta << "\n";
+		guardaInformacion(raiz->izq, archivo);
+		guardaInformacion(raiz->der, archivo);
+	}
 }
 
 // Método que cierra el archivo leido
@@ -40,6 +76,5 @@ bool Archivos::verificarDatosArchivo()
 	if (estadoLectura == 0) {
 		return true;
 	}
-		
 return false;
 }

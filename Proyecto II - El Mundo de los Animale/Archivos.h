@@ -17,27 +17,28 @@
 #include<iostream>
 #include<string>
 #include<fstream>
+#include "ArbolBusqAnimales.h"
 
 using std::fstream;
 using std::string;
 using std::ios;
-using std::cin;
 
 // Define la clase archivos
 class Archivos {
 
 // Métodos públicos
 public:
-
 	Archivos() {}
 	bool verificarDatosArchivo();
-	fstream abrirArchivoEntrada();
-	fstream abrirArchivoSalida();
+	fstream& abrirArchivoEntrada();
+	fstream& abrirArchivoSalida();
+	void obtenerInformacionArchivo(fstream& archivo, Nodo*& raiz);
+	void guardaInformacion(Nodo*& raiz, fstream& archivo);
 	void cerrarArchivo(fstream &archivo);
 
 // Métodos privados
 private:
-	
+	fstream archivo;
 };
 
 #endif // !ARCHIVOS_H

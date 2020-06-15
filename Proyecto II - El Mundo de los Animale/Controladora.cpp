@@ -1,7 +1,7 @@
 #include "Controladora.h"
 
 Interfaz inter; // Delcaración de la clase interfaz de uso global
-ArbolBAnimal aBA; // Declaracion de uso de la clase arbol de busqueda animal
+ArbolBAnimal aBA; // Declaración de uso de la clase arbol de busqueda animal
 Archivos ar; // Declaración de uso de la clase archivos
 
 // Método que controla el inicio del programa
@@ -24,20 +24,15 @@ void Controladora::mensajeInicial()
 // el usuario utiliza el sistema.
 void Controladora::ejecutarPrograma()
 {
-	Nodo* principal;
 	// Verifica que se pueda realizar la lectura del archivo de texto con la 
 	// informacion del programa.
 	if (ar.verificarDatosArchivo()) {
-		fstream archivo = ar.abrirArchivoEntrada();
-		principal = aBA.getRaiz();
-		aBA.obtenerInformacionArchivo(archivo, principal);
-		ar.cerrarArchivo(archivo);
-		aBA.generarPreguntas(principal, NULL, inter);
+		ar.obtenerInformacionArchivo(ar.abrirArchivoEntrada(), aBA.getRaiz());
+		ar.cerrarArchivo(ar.abrirArchivoEntrada());
+		aBA.generarPreguntas(aBA.getRaiz(),NULL,inter);
 		if (aBA.getAceptaDatos()) {
-			cout << "\n---ACEPTA DATOS NUEVOS !!2 ----\n";
-			archivo = ar.abrirArchivoSalida();
-			aBA.guardaInformacion(principal, archivo);
-			ar.cerrarArchivo(archivo);
+			ar.guardaInformacion(aBA.getRaiz(),ar.abrirArchivoSalida());
+			ar.cerrarArchivo(ar.abrirArchivoSalida());
 		}
 
 		if (verificaProgramaContinua()) {
@@ -54,7 +49,6 @@ void Controladora::ejecutarPrograma()
 		cout << "\nERROR LECTURA ARCHIVO\n";
 		
 	}
-	
 }
 
 // Método que se encarga de verificar realizando una pregunta al usuario 
@@ -90,7 +84,6 @@ bool Controladora::verificaProgramaContinua()
 		// la verificación.
 		return verificaProgramaContinua();
 	}
-
 	return false;
 }
 

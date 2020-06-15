@@ -10,7 +10,6 @@
 
 #include <iostream>
 #include <string>
-#include "Archivos.h"
 #include "Interfaz.h"
 
 // Declaracion de uso de implementaciones de la libreria STD
@@ -33,13 +32,10 @@ public:
 	ArbolBAnimal() { inicializaNodos(); }
 
 	// Metodo que devuelve la raiz del arbol animal
-	Nodo* getRaiz() { return raiz; }
+	Nodo*& getRaiz() { return raiz; }
 	bool getAceptaDatos() { return aceptaNDatos; }
-	void obtenerInformacionArchivo(fstream& archivo, Nodo*& raiz);
 	void generarPreguntas(Nodo* raiz, Nodo* anterior, Interfaz inter);
 	void adivinarAnimal(Nodo* raiz, Nodo* anterior, Interfaz inter);
-	void guardaInformacion(Nodo*& raiz, fstream& archivo);
-	//void reordenaOrdenNodosNuevo(Nodo* raiz, Nodo* anterior, Nodo* nuevoNodoCaract);
 	// Métodos privados
 private:
 

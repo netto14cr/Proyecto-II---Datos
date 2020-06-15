@@ -160,42 +160,6 @@ void ArbolBAnimal::reordenaOrdenNodosNuevo(Nodo* raiz, Nodo* anterior,
 
 }
 
-// Método recursivo que realiza la lectura por linea del archivo de texto y
-// va creando la informacion para ir acomodando en una estructura de arbol
-void ArbolBAnimal::obtenerInformacionArchivo(fstream& archivo, Nodo*& raiz)
-{
-	string lineaTxt;
-	if (!archivo.eof())
-	{
-		getline(archivo, lineaTxt);
-		cin.clear();
-	}
-	else
-		return;
-
-	if (lineaTxt != "#")
-	{
-		raiz = new Nodo;
-		raiz->pregunta = lineaTxt;
-		obtenerInformacionArchivo(archivo, raiz->izq);
-		obtenerInformacionArchivo(archivo, raiz->der);
-	}
-	else { raiz = NULL; }
-}
-
-
-void ArbolBAnimal::guardaInformacion(Nodo*& raiz, fstream& archivo)
-{
-	if (raiz == NULL)
-		archivo << "#"<< "\n";
-	else
-	{
-		archivo << raiz->pregunta << "\n";
-		guardaInformacion(raiz->izq, archivo);
-		guardaInformacion(raiz->der, archivo);
-	}
-}
-
 // Método que permite ingresar un valor booleano de verdadero o falso 
 // en la variable de la clase de aceptar datos que es utilizada para
 // controlar si el programa debe aceptar nuevas caracteristicas que 
