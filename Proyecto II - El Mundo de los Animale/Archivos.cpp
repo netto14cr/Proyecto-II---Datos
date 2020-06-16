@@ -18,14 +18,14 @@ fstream& Archivos::abrirArchivoLectura()
 
 // Método recursivo que realiza la lectura por linea del archivo de texto y
 // va creando la informacion para ir acomodando en una estructura de arbol
-void Archivos::obtenerInformacionArchivo(fstream& archivo, Nodo*& raiz)
+void Archivos::obtenerInformacionArchivo(fstream& archivos, Nodo*& raiz)
 {
 	string lineaTxt;
 	// Se obtiene los datos del archivo de texto mientras este sea diferente
 	// al final del archivo, asi puede obtener leyendo linea por linea.
-	if (!archivo.eof())
+	if (!archivos.eof())
 	{
-		getline(archivo, lineaTxt); // Se obtinene linea del archivo
+		getline(archivos, lineaTxt); // Se obtinene linea del archivo
 		cin.clear();// Se limpia la información para evitar un posible
 		// error de datos basura.
 	}
@@ -42,8 +42,8 @@ void Archivos::obtenerInformacionArchivo(fstream& archivo, Nodo*& raiz)
 		// Se llama al método para que funcione de manera recursiva para que salve 
 		// los datos obtenidos de forma de hijos del arbol, guardando datos en el nodo
 		// izquierdo como el derecho.
-		obtenerInformacionArchivo(archivo, raiz->izq);
-		obtenerInformacionArchivo(archivo, raiz->der);
+		obtenerInformacionArchivo(archivos, raiz->izq);
+		obtenerInformacionArchivo(archivos, raiz->der);
 	}
 
 	// Falso si no puede leer la información devolvera el valor de nodo 
@@ -63,31 +63,31 @@ fstream& Archivos::abrirArchivoEscrutura()
 
 // Método que se encarga de guardar la información del nuevo árbol de busqueda animal
 // en un archivo de texto para que se actialice la base de datos del sistema.
-void Archivos::guardaInformacion(Nodo*& raiz, fstream& archivo)
+void Archivos::guardaInformacion(Nodo*& raiz, fstream& archivoo)
 {
 	// Se verifica que si el nodo hijo actual es nulo entonces se escribira en el archivo
 	// el caracter $ para que concatene el nodo con un identificador para guarda correctamente
 	// el nuevo dato.
 	if (raiz == NULL)
-		archivo << "$" << "\n";
+		archivoo <<"$"<<"\n";
 
 	// Falso si el nodo ingresado posee información nueva entonces se salvan sus datos
 	else
 	{// Se obtiene el texto y se guarda en archivo
-		archivo << raiz->dato << "\n";
+		archivoo << raiz->dato <<"\n";
 		// Se guarda en orden de nodo izquierdo primero y luego derecho
 		// recursivamente de está manera la pregunta y el nuevo animal quedaran
 		// salvados correctamente.
-		guardaInformacion(raiz->izq, archivo);
-		guardaInformacion(raiz->der, archivo);
+		guardaInformacion(raiz->izq, archivoo);
+		guardaInformacion(raiz->der, archivoo);
 	}
 }
 
 // Método que cierra el archivo de texto abierto
-void Archivos::cerrarArchivo(fstream& archivo)
+void Archivos::cerrarArchivo(fstream& archivox)
 {
 	// Se cierra el archivo utilizado para manejar la información de texto.
-	archivo.close();
+	archivox.close();
 }
 
 

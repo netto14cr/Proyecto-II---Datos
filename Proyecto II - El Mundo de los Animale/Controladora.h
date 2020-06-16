@@ -8,9 +8,7 @@
 #define CONTROLADORA_H
 
 #include <iostream>
-#include "Interfaz.h"
-#include "ArbolBusqAnimales.h"
-#include "Archivos.h"
+#include "Modelo.h"
 
 // Define la clase Controladora
 class Controladora{
@@ -26,11 +24,8 @@ public:
 private:
 
 	// Métodos que no retornan valor
-	void mensajeInicial();
 	void ejecutarPrograma();
-	void mensajeFinal();
 	// Metodo que retorna un valor
-	bool verificaProgramaContinua();
 
 };
 #endif // !CONTROLADORA_H

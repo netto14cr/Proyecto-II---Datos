@@ -32,7 +32,6 @@ public:
 	void mensajeFinal();
 	// Métodos privados
 private:
-	fstream archivo;
 };
 
 #endif // !MODELO_H
