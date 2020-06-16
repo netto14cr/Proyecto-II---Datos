@@ -1,5 +1,5 @@
 // Archivos.h
-// Autor: Néstor Leiva Mora - 116080589
+// Autor: Néstor David Leiva Mora - 116080589
 // Descripción: Define métodos de la clase archivos utilizados para el acceso 
 //				a la infomación de datos guardados que sirven como base del programa.
 
@@ -8,17 +8,19 @@
 #ifndef ARCHIVOS_H
 #define ARCHIVOS_H
 
-// Se define la ruta de dos archivos de texto con informacion del arbol de animales.
+// Se define la ruta de dos archivos de texto con informacion del arbol 
+// de animales ( Estos se encuantran en una carpeta llamada Archivos).
 // Direccion de archivo de prueba.
-#define DIR_ARCHIVO_ARBOL "Arbol_Animal.txt" 
+#define DIR_ARCHIVO_ARBOL "../Archivos/Arbol_Animal.txt" 
 // Dirección de archivo original del enunciado.
-#define DIR_ARCHIVO_ORIG "Original_Arbol_Animal.txt" 
+#define DIR_ARCHIVO_ORIG "../Archivos/Original_Arbol_Animal.txt" 
 
 #include<iostream>
 #include<string>
 #include<fstream>
 #include "ArbolBusqAnimales.h"
 
+// Declaración de funcion de libreria STD utilizada para manejo de archivos de texto.
 using std::fstream;
 using std::string;
 using std::ios;
@@ -28,14 +30,14 @@ class Archivos {
 
 // Métodos públicos
 public:
-	Archivos() {}
+	Archivos() {} // Constructor de la clase por defecto
+	virtual ~Archivos(){} // Destructor de la clase 
 	bool verificarDatosArchivo();
-	fstream& abrirArchivoEntrada();
-	fstream& abrirArchivoSalida();
+	fstream& abrirArchivoLectura();
+	fstream& abrirArchivoEscrutura();
 	void obtenerInformacionArchivo(fstream& archivo, Nodo*& raiz);
 	void guardaInformacion(Nodo*& raiz, fstream& archivo);
 	void cerrarArchivo(fstream &archivo);
-
 // Métodos privados
 private:
 	fstream archivo;

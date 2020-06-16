@@ -1,0 +1,33 @@
+¿El animal que estas pensando es un ave?
+¿Esta ave cacarea?
+$
+$
+Gallina
+$
+$
+Aguila
+$
+$
+¿El aminal que estas pensando es un reptil?
+¿Este reptil es grande?
+Lagarto
+$
+$
+¿El animal que estas pensando es un mamifero?
+¿Este mamifero es acuatico?
+Ballena
+$
+$
+¿Este mamifero maulla?
+Gato
+$
+$
+Perro
+$
+$
+¿El animal que estas pensando es un pez?
+$
+$
+Beta
+$
+$

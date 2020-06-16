@@ -10,7 +10,7 @@
 
 #include <iostream>
 #include <string>
-// Declaración de funcion de libreria utilizada para imprirmir mensajes
+// Declaración de funcion de libreria STD utilizada para imprirmir mensajes
 using std::cout;
 using std::string;
 using std::cin;
@@ -28,7 +28,8 @@ public:
 	void mensajeAnimalAdivinado();
 	void mensajeAnimalNoAdivinado();
 	void eliminaCacheDatosEntrada();
-	void limpiairPantalla();
+	void limpiarPantalla();
+	void mensajeErrorLecturaArchivo();
 	string preguntaAusuario(string dato);
 	string preguntaAnimal(string dato);
 	string preguntaNuevoAnimal();
@@ -38,7 +39,6 @@ public:
 // Métodos privados
 private:
 	void detenerActPantalla();
-
 };
 #endif // !INTERFAZ_H
 

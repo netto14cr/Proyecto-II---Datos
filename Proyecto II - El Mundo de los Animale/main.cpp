@@ -9,7 +9,8 @@
 #include "Controladora.h"
 int main()
 {
-	Controladora control; // Declara el uso de la clase controladora.
+	// Declara el uso de la clase controladora.
+	Controladora control; 
 	return 0;
 }
 

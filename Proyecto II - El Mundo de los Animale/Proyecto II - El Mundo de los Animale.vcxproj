@@ -156,12 +156,14 @@
     <ClCompile Include="Controladora.cpp" />
     <ClCompile Include="Interfaz.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Modelo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArbolBusqAnimales.h" />
     <ClInclude Include="Archivos.h" />
     <ClInclude Include="Controladora.h" />
     <ClInclude Include="Interfaz.h" />
+    <ClInclude Include="Modelo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

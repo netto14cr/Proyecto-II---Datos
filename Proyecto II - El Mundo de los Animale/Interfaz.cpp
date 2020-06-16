@@ -1,3 +1,10 @@
+// Interfaz.h
+// Autor: Néstor David Leiva Mora - 116080589
+// Descripción: Implementa los métodos de la clase Interfaz que se utilizan para 
+//              mostrar la actualización de datos del sistema, permitiendo mostrados
+//              guiar y capturar las respuestas del usuario durante la ejecución del
+//				programa.
+
 #include "Interfaz.h"
 
 // Método que muestra un mensaje de error cuando el usuario ingresa un comando
@@ -16,7 +23,7 @@ void Interfaz::mensajeBienvenida()
 }
 
 
-// Método que muestra en pantalla un mensaje con a información de la descripcion
+// Método que muestra en pantalla un mensaje con a información de la descripción
 // del programa e indicando lo que puede realizar según el enunciado del proyecto.
 void Interfaz::mensajeDescripcion()
 {
@@ -33,11 +40,11 @@ void Interfaz::mensajeDescripcion()
 		" ventana donde le solicita\n al usuario que escriba el nombre del animal y una fuerte"
 		" caracteristica de el\n\n\n";
 	detenerActPantalla();
-	limpiairPantalla();
+	limpiarPantalla();
 }
 
 // Método que muestra en pantalla un mensaje con las instrucciones de funcionamiento
-// del programa para que el usuario se guie antes de iniciar a ejecutar el programa.
+// del programa para que el usuario se guie antes de iniciar a ejecutar el sistema.
 void Interfaz::mensajeInstrucciones()
 {
 	cout << "__________________________________________________________"
@@ -56,16 +63,16 @@ void Interfaz::mensajeInstrucciones()
 	cout << "3- Para terminar la ejecución del programa puede seleccionar no continuar jugando"
 		" ingresando la paralabra 'No' o \n   la letra 'N'.\n\n\n";
 	detenerActPantalla();
-	limpiairPantalla();
+	limpiarPantalla();
 }
 
 // Método que muestra en pantalla un mensaje de Despedida al usuario en el programa.
 void Interfaz::mensajeDespedida()
 {
-	limpiairPantalla();
+	limpiarPantalla();
 	cout << "__________________________________________________________"
 		"___________________________________________________________";
-	cout << "\n\n\t************	Gracias por usar el sistema esperamos que te haya servido de ayuda!	************\n";
+	cout << "\n\n\t************	Gracias por usar el sistema, te esperamos pronto!	************\n";
 	cout << "__________________________________________________________"
 		"___________________________________________________________\n\n\n";
 	detenerActPantalla();
@@ -73,7 +80,8 @@ void Interfaz::mensajeDespedida()
 // Método que permite mostrar en pantalla al usuario que ha acertado con el animal
 void Interfaz::mensajeAnimalAdivinado()
 {
-	cout << "\n\n__________________________________________________________"
+	limpiarPantalla();
+	cout << "__________________________________________________________"
 		"___________________________________________________________";
 	cout << "\n\n\t\t\t************	 Y O  G A N E !!	************\n";
 	cout << "__________________________________________________________"
@@ -83,7 +91,8 @@ void Interfaz::mensajeAnimalAdivinado()
 // Método que permite mostrar en pantalla al usuario que NO ha acertado con el animal
 void Interfaz::mensajeAnimalNoAdivinado()
 {
-	cout << "\n\n__________________________________________________________"
+	limpiarPantalla();
+	cout << "__________________________________________________________"
 		"___________________________________________________________";
 	cout << "\n\n\t\t\t************	 A C E P T O  M I  D E R R O R T A !!	************\n";
 	cout << "__________________________________________________________"
@@ -110,12 +119,14 @@ string Interfaz::preguntaAusuario(string dato)
 }
 
 // Método que permite mostrar en pantalla al usuario la pregunta que el sistema 
-// con la información del arbol animal y las caracteristicas previamente seleccionadas
+// con la información del árbol animal y las caracteristicas previamente seleccionadas
 // del usuario, para adivinar el animal que esta pensando.
 string Interfaz::preguntaAnimal(string dato)
 {
 	string resp; resp = "";
-	cout << "\n\t El animal que estas pensado es: " << dato << " ?\n";
+	cout << "\n\t%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n";
+	cout << "\n\t <<<<<<<<<<<<			El animal que estas pensado es: " << dato << " ?		>>>>>>>>>>>>\n";
+	cout << "\n\t%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n";
 	cin >> resp;
 	cout << "\n";
 	return resp;
@@ -125,9 +136,9 @@ string Interfaz::preguntaAnimal(string dato)
 // almacenado en la base de datos del sistema.
 string Interfaz::preguntaNuevoAnimal()
 {
-	string resp; resp = "";
 	eliminaCacheDatosEntrada();// elimina datos basura de entrada
-	cout << "\n\n\t************	Ingrese el animal que estabas pensando?	************\n";
+	string resp; resp ="";
+	cout << "\n\n\t\t************		Ingrese el animal que estabas pensando?		************\n";
 	getline(cin, resp);
 	return resp;
 }
@@ -138,8 +149,7 @@ string Interfaz::preguntaNuevoAnimal()
 string Interfaz::preguntaNuevaCaracteristica()
 {
 	string resp; resp = "";
-	eliminaCacheDatosEntrada();// elimina datos basura de entrada
-	cout << "\n\n\t*** Ingrese la caracteristica principal del animal ingresado previamente\n"
+	cout << "\n\n*** Ingrese la caracteristica principal del animal ingresado previamente"
 		" en forma de pregunta?	***\n";
 	getline(cin, resp);
 	return resp;
@@ -148,16 +158,29 @@ string Interfaz::preguntaNuevaCaracteristica()
 string Interfaz::preguntaContinuar()
 {
 	string resp; resp = "";
-	cout << "\n\t Desea seguir buscando animales? \n";
+	cout << "\n\n\t Desea seguir buscando animales? \n";
 	cin >> resp;
 	cout << "\n";
 	return resp;
 }
 
 // Método que permite la eliminación de información mostrada en pantalla.
-void Interfaz::limpiairPantalla()
+void Interfaz::limpiarPantalla()
 {
 	system("cls");
+}
+
+// Método que permite mostar por pantalla el mensaje de error al 
+// cargar un archivo, por que este no exista.
+void Interfaz::mensajeErrorLecturaArchivo()
+{
+	limpiarPantalla();
+	cout << "__________________________________________________________"
+		"___________________________________________________________";
+	cout << "\n\n\t****	Error desconocido al intentar acceder al achivo de texto	****\n";
+	cout << "__________________________________________________________"
+		"___________________________________________________________\n\n\n";
+	detenerActPantalla();
 }
 
 // Método que permite la puause en la ejecución del programa.
