@@ -39,20 +39,6 @@ void Controladora::ejecutarPrograma()
 		// que comience con el recorrido de la información y ej
 		mod.generarPreguntas();
 		
-		
-		// Se realiza la verificación de que se debe acceder a guardar datos
-		// nuevos en el sistema
-		// Si el el dato es true se procede a actualizar los datos
-		if (mod.aceptaNuevosDatos()) {
-			// Se guarda la información del árbol previamente modificado y se
-			// le indica el archivo utilizado para salvar los datos.
-			mod.guardaInformacion();
-			
-			// Se llama al método que se encarga cerrar el archivo modificado.
-			mod.cerrarArchivoEscritura();
-			
-		}
-
 		// Se llama al método que realiza la pregunta de si desea contianuar con
 		// alguna otra búsqueda, esto una vez terminada la función de adivinar
 		// el animal que esta pensado,

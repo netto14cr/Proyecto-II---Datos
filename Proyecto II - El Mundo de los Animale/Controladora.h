@@ -23,9 +23,7 @@ public:
 // Métodos privados
 private:
 
-	// Métodos que no retornan valor
 	void ejecutarPrograma();
-	// Metodo que retorna un valor
 
 };
 #endif // !CONTROLADORA_H

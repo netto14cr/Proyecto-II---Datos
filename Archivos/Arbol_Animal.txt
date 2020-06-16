@@ -1,7 +1,5 @@
 ¿El animal que estas pensando es un ave?
 ¿Esta ave cacarea?
-$
-$
 Gallina
 $
 $

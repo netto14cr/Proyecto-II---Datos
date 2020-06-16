@@ -26,6 +26,19 @@ void Modelo::cerrarArchivoLectura()
 void Modelo::generarPreguntas()
 {
 	aBA.generarPreguntas(aBA.getRaiz(), NULL, inter);
+
+	// Se realiza la verificación de que se debe acceder a guardar datos
+		// nuevos en el sistema
+		// Si el el dato es true se procede a actualizar los datos
+	if (aceptaNuevosDatos()) {
+		// Se guarda la información del árbol previamente modificado y se
+		// le indica el archivo utilizado para salvar los datos.
+		guardaInformacion();
+
+		// Se llama al método que se encarga cerrar el archivo modificado.
+		cerrarArchivoEscritura();
+	}
+
 }
 
 bool Modelo::aceptaNuevosDatos()
