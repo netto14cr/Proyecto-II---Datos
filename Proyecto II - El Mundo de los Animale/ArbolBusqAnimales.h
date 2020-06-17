@@ -50,9 +50,9 @@ private:
 	void restructuraDatosArbol(Nodo* actual, Nodo* anterior, string nuevoAnimal, 
 		string nuevaCaract, Interfaz inter);
 	void verificaRespuestaPregunta(string respuesta, Nodo* raiz, 
-									Nodo* anterior, Interfaz inter);
+								Nodo* anterior, Interfaz inter);
 	void verificaRepuestaAnimal(string respuesta, Nodo* raiz, 
-									Nodo* anterior, Interfaz inter);
+								Nodo* anterior, Interfaz inter);
 
 	void reordenaOrdenNodosNuevo(Nodo* raiz, Nodo* anterior, Nodo* nuevoNodoCaract);
 	void aceptaNuevosDatos(bool conf);

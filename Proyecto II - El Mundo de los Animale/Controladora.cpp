@@ -38,6 +38,10 @@ void Controladora::ejecutarPrograma()
 		// Se llama al método principal de arbol de búsqueda binaria aniamal para
 		// que comience con el recorrido de la información y ej
 		mod.generarPreguntas();
+		// Se llama al método que se encarga de verificar si al terminar la primera
+		// ejecuión del programa, este optubo datos nuevos que debe ser guardados en
+		// el sistema.
+		mod.verificaModificaciónDatos();
 		
 		// Se llama al método que realiza la pregunta de si desea contianuar con
 		// alguna otra búsqueda, esto una vez terminada la función de adivinar

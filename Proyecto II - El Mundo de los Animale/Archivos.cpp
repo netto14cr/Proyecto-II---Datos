@@ -11,7 +11,7 @@
 // árbol de busqueda de los animales.
 fstream& Archivos::abrirArchivoLectura()
 {
-	//Apertura de archivo con la direccion del archivo de texto que se requiere abrir
+	//Apertura de archivo con la dirección del archivo de texto que se requiere abrir
 	archivo.open(DIR_ARCHIVO_ARBOL, ios::in);
 	return archivo;
 }
@@ -89,7 +89,6 @@ void Archivos::cerrarArchivo(fstream& archivox)
 	// Se cierra el archivo utilizado para manejar la información de texto.
 	archivox.close();
 }
-
 
 // Método que busca la información de un archivo de texto indicado y 
 // devuelve una respuesta verdadera o falsa si pudo acceder a la información

@@ -4,31 +4,19 @@ Gallina
 $
 $
 Esta ave es nocturna?
-Esta ave tiene ojos grandes?
-Lechuza
-$
-$
 Buho
 $
 $
 Esta ave es rapida?
 Avestruz
 $
-#
+$
 Aguila
-#
-#
+$
+$
 ¿El aminal que estas pensando es un reptil?
 ¿Este reptil es grande?
 Lagarto
-$
-$
-Es un reptil herviboro?
-Iguana
-$
-$
-Este reptil puede ver en la oscuidad?
-Gecko
 $
 $
 Lagartija
@@ -41,10 +29,6 @@ $
 $
 ¿Este mamifero maulla?
 Gato
-$
-$
-Este mamifero hace Berridos?
-conejo
 $
 $
 Perro

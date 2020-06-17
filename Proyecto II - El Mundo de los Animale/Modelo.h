@@ -26,10 +26,12 @@ public:
 	bool aceptaNuevosDatos();
 	void guardaInformacion();
 	void cerrarArchivoEscritura();
+	void verificaModificaciónDatos();
 	bool verificaProgramaContinua();
 	void limpiarPantalla();
 	void mensajeInicial();
 	void mensajeFinal();
+
 	// Métodos privados
 private:
 };

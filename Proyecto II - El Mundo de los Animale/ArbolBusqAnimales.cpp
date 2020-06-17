@@ -106,12 +106,14 @@ void ArbolBAnimal::verificaRespuestaPregunta(string respuesta, Nodo* raiz,
 	Nodo* anterior, Interfaz inter)
 {
 	// Se verifica que el usuario haya ingresado la respuesta de SI correctamente.
-	if (respuesta == "SI" || respuesta == "S")
+	if (respuesta == "SI" || respuesta == "si"
+		|| respuesta=="S" || respuesta =="s")
 		generarPreguntas(raiz->izq, raiz, inter);
 	// Falso es diferente a SI la respuesta entonces se verifica de nuevo la respuesta.
 	else
 	{	// Se verifica si el usuario ingreso la opcion de NO.
-		if (respuesta == "NO" || respuesta == "N")
+		if (respuesta == "NO" || respuesta == "no"
+			|| respuesta=="N" || respuesta=="n")
 			generarPreguntas(raiz->der, raiz, inter);
 		// Falso si el usuario ingresa una respuesta diferente a la indicada 
 		// entonces es una accion equeivocada por lo que se le mostrar el mensaje
@@ -130,7 +132,8 @@ void ArbolBAnimal::verificaRepuestaAnimal(string respuesta, Nodo* raiz,
 {
 	// Si respuesta es positiva (SI) entonces el sistema adivino el animal
 	// y muestra el mensaje que el usuario acierto.
-	if (respuesta == "SI" || respuesta == "S")
+	if (respuesta == "SI" || respuesta == "si"
+		|| respuesta == "S" || respuesta == "s")
 	{
 		// Muestra mensaje que usuario ha adivinado el animal.
 		inter.mensajeAnimalAdivinado(); 
@@ -144,7 +147,8 @@ void ArbolBAnimal::verificaRepuestaAnimal(string respuesta, Nodo* raiz,
 		// además llama al método para restructuras la base de datos del árbol,
 		// permitiendo expandir su conocimiento con datos que le proporcione el
 		// usuario.
-		if (respuesta == "NO" || respuesta == "N")
+		if (respuesta == "NO" || respuesta == "no"
+			|| respuesta == "N" || respuesta == "n")
 		{
 			inter.mensajeAnimalNoAdivinado();
 			ingresarNuevosDatos(raiz, anterior, inter);

@@ -3,12 +3,23 @@
 Gallina
 $
 $
+Esta ave es nocturna?
+Buho
+$
+$
+Esta ave es rapida?
+Avestruz
+$
+$
 Aguila
 $
 $
 ¿El aminal que estas pensando es un reptil?
 ¿Este reptil es grande?
 Lagarto
+$
+$
+Lagartija
 $
 $
 ¿El animal que estas pensando es un mamifero?

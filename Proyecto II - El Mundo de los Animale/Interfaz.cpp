@@ -11,8 +11,10 @@
 // de respuesta no valido para continuar con las acciones del programa.
 void Interfaz::mensajeErrorTeclaRespuesta()
 {
-	cout << "\nError comando de respuesta invalido..."
-		    "\nPor favor intentelo de nuevo respondiendo con SI o NO!\n";
+	cout << "\n\t#################################################################################\n";
+	cout << "\n\t\t\t Error comando de respuesta invalida !!..."
+		    "\n\t\t Por favor intentelo de nuevo respondiendo con SI o NO!\n";
+	cout << "\n\t#################################################################################\n";
 }
 
 // Método que muestra en pantalla un mensaje de Bienvenida al usuario en el programa.
